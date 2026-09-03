@@ -1,0 +1,27 @@
+protocol: openai
+model: gpt-4o-mini
+base_url: https://api.openai.com/v1
+api_key: ${MONKEYCODE_API_KEY}
+
+options:
+  temperature: 0.7
+
+context:
+  enabled: true
+  context_window_tokens: 5000
+  auto_safety_margin_tokens: 13000
+  manual_safety_margin_tokens: 3000
+  recent_tail_tokens: 10000
+  recent_tail_min_messages: 5
+  single_tool_result_tokens: 6000
+  turn_tool_results_tokens: 12000
+  archive_dir: ".monkeycode/context"
+
+worktree:
+  enabled: true
+  root: ".monkeycode/worktrees"
+  ttl_hours: 24
+  copy_paths: []
+  link_dirs: []
+  include_ignored: []
+  hooks_path: null

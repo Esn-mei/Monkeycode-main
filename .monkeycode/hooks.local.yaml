@@ -1,0 +1,48 @@
+﻿# MonkeyCode 本地 hooks 配置
+# 不提交到 Git，仅当前开发环境生效
+
+hooks:
+  - id: block-json-write
+    event: tool.before
+    if:
+      any:
+        - field: tool.arguments.path
+          match: regex
+          value: \.json$
+        - field: tool.arguments.command
+          match: regex
+          value: \.json
+    action:
+      type: prompt
+      target: tool_result
+      content: |
+        [规则拦截]
+        你正在尝试操作 .json 文件，该操作已被安全策略阻止。
+        请使用专用工具处理 JSON，而不是直接读写 .json 文件。
+        此规则在整个会话中生效。
+  - id: output-format
+    event: system.hooks_loaded
+    action:
+      type: prompt
+      target: session_context
+      content: |
+        [输出格式规则]
+        你的回答会以流式逐字渲染。请在编写回答时遵循以下格式规则：
+
+        **1. 正文/思考/回复段落**
+        每一行或每句话用 ● (U+25CF) 开头，后面接你的思考或回复内容。
+        示例：
+        ● 正在检查代码中的问题...
+        ● 根据分析，问题的根源在于xxx模块的xxx
+        ● 建议这样修改：...
+
+        **2. 代码块**
+        代码块开头第一行加 [代码] 标记，结尾加 [/代码] 标记，包裹代码内容。
+        **3. 文件引用**
+        使用 file:path:line 格式引用文件。
+
+        **4. 命令/工具调用**
+        执行命令/调用工具时，直接显示结果，切勿加 ● 前缀。
+        工具输出的文本保持原样，不加任何格式修饰。
+
+        请严格遵守以上格式规则。每句话都用 ● 开头。代码块用 [代码]/[/代码] 包裹。

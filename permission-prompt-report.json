@@ -1,0 +1,21 @@
+{
+  "benchmark": "permission_prompt_microbenchmark",
+  "sessions": 1,
+  "workload": "50 write operations, five repeated targets, ten calls per target",
+  "baseline": {
+    "operations": 50,
+    "successful": 50,
+    "prompts": 50
+  },
+  "optimized": {
+    "operations": 50,
+    "successful": 50,
+    "prompts": 5
+  },
+  "prompt_reduction_rate": 0.9,
+  "hard_boundary_checks": {
+    "dangerous_command_denied": true,
+    "workspace_escape_denied": true
+  },
+  "interpretation": "Controlled permission-layer microbenchmark; not a representative end-to-end Agent task sample."
+}

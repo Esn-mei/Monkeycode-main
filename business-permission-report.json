@@ -1,0 +1,194 @@
+{
+  "benchmark": "business_task_permission_replay_v2",
+  "task_count": 10,
+  "session_model": "one PermissionManager session per task; identical operation sequence in both groups",
+  "workload": "10 coding tasks; 5 edit/test iterations per task; repeated edits to 3 files and repeated test commands",
+  "baseline": {
+    "tasks": 10,
+    "total_operations": 290,
+    "total_prompts": 190,
+    "mean_prompts": 19,
+    "median_prompts": 19.0,
+    "p95_prompts": 19,
+    "success_rate": 1.0
+  },
+  "optimized": {
+    "tasks": 10,
+    "total_operations": 290,
+    "total_prompts": 50,
+    "mean_prompts": 5,
+    "median_prompts": 5.0,
+    "p95_prompts": 5,
+    "success_rate": 1.0
+  },
+  "prompt_reduction_rate": 0.7368,
+  "baseline_tasks": [
+    {
+      "task": "business_task_01",
+      "operations": 29,
+      "prompts": 19,
+      "allowed": 29,
+      "denied": 0,
+      "success": true
+    },
+    {
+      "task": "business_task_02",
+      "operations": 29,
+      "prompts": 19,
+      "allowed": 29,
+      "denied": 0,
+      "success": true
+    },
+    {
+      "task": "business_task_03",
+      "operations": 29,
+      "prompts": 19,
+      "allowed": 29,
+      "denied": 0,
+      "success": true
+    },
+    {
+      "task": "business_task_04",
+      "operations": 29,
+      "prompts": 19,
+      "allowed": 29,
+      "denied": 0,
+      "success": true
+    },
+    {
+      "task": "business_task_05",
+      "operations": 29,
+      "prompts": 19,
+      "allowed": 29,
+      "denied": 0,
+      "success": true
+    },
+    {
+      "task": "business_task_06",
+      "operations": 29,
+      "prompts": 19,
+      "allowed": 29,
+      "denied": 0,
+      "success": true
+    },
+    {
+      "task": "business_task_07",
+      "operations": 29,
+      "prompts": 19,
+      "allowed": 29,
+      "denied": 0,
+      "success": true
+    },
+    {
+      "task": "business_task_08",
+      "operations": 29,
+      "prompts": 19,
+      "allowed": 29,
+      "denied": 0,
+      "success": true
+    },
+    {
+      "task": "business_task_09",
+      "operations": 29,
+      "prompts": 19,
+      "allowed": 29,
+      "denied": 0,
+      "success": true
+    },
+    {
+      "task": "business_task_10",
+      "operations": 29,
+      "prompts": 19,
+      "allowed": 29,
+      "denied": 0,
+      "success": true
+    }
+  ],
+  "optimized_tasks": [
+    {
+      "task": "business_task_01",
+      "operations": 29,
+      "prompts": 5,
+      "allowed": 29,
+      "denied": 0,
+      "success": true
+    },
+    {
+      "task": "business_task_02",
+      "operations": 29,
+      "prompts": 5,
+      "allowed": 29,
+      "denied": 0,
+      "success": true
+    },
+    {
+      "task": "business_task_03",
+      "operations": 29,
+      "prompts": 5,
+      "allowed": 29,
+      "denied": 0,
+      "success": true
+    },
+    {
+      "task": "business_task_04",
+      "operations": 29,
+      "prompts": 5,
+      "allowed": 29,
+      "denied": 0,
+      "success": true
+    },
+    {
+      "task": "business_task_05",
+      "operations": 29,
+      "prompts": 5,
+      "allowed": 29,
+      "denied": 0,
+      "success": true
+    },
+    {
+      "task": "business_task_06",
+      "operations": 29,
+      "prompts": 5,
+      "allowed": 29,
+      "denied": 0,
+      "success": true
+    },
+    {
+      "task": "business_task_07",
+      "operations": 29,
+      "prompts": 5,
+      "allowed": 29,
+      "denied": 0,
+      "success": true
+    },
+    {
+      "task": "business_task_08",
+      "operations": 29,
+      "prompts": 5,
+      "allowed": 29,
+      "denied": 0,
+      "success": true
+    },
+    {
+      "task": "business_task_09",
+      "operations": 29,
+      "prompts": 5,
+      "allowed": 29,
+      "denied": 0,
+      "success": true
+    },
+    {
+      "task": "business_task_10",
+      "operations": 29,
+      "prompts": 5,
+      "allowed": 29,
+      "denied": 0,
+      "success": true
+    }
+  ],
+  "limitations": [
+    "真实权限执行器任务回放，不包含模型推理",
+    "命令未实际执行，仅测量授权决策",
+    "不等同于真实SWE-bench修复成功率"
+  ]
+}

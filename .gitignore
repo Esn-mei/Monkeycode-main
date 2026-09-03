@@ -1,0 +1,16 @@
+.pytest_cache/
+.ruff_cache/
+__pycache__/
+*.egg-info/
+.agents/
+.codex/
+.env
+.monkeycode/context/archives/
+.monkeycode/memory/
+.monkeycode/permissions.local.yaml
+.monkeycode/sessions/
+.monkeycode/worktrees/
+.monkeycode/worktree-state/
+config.yaml
+configs/config.yaml
+-p/
